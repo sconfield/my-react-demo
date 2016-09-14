@@ -26,7 +26,7 @@ body {
 .for {
   width: 120px;
   margin: 10px auto auto auto;
-  border: 1px solid blue;
+  border: 1px solid white;
 }
 .for>ul {
   text-align: initial;

@@ -77,11 +77,15 @@ const VueInput = React.createClass({
   }
 });
 
-const names = ['iverson', 'kobe', 'james'];
+const names = [
+  {name: 'sconfield', color: 'blue'},
+  {name: 'vivijin', color: 'green'},
+  {name: 'jacob', color: 'black'}
+];
 const ForList = React.createClass({
   render:function(){
-    const createItem = function(name){
-      return <li>{name}</li>
+    const createItem = function(item, idx){
+      return <li key={idx} style={{color: item.color}}>{item.name}</li>
     };
     return (
       <div className="for">
