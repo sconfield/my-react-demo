@@ -2,29 +2,7 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to create-react-app</h2>
-          <Hello></Hello>
-          <WhoAmI name="sconfield"></WhoAmI>
-          <LoveButton></LoveButton>
-          <VueInput></VueInput>
-        </div>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-      </div>
-    );
-  }
-}
-
-export default App;
-
-let Hello = React.createClass({
+const Hello = React.createClass({
   render: function(){
     return (
       <h1>Hello React</h1>
@@ -32,7 +10,7 @@ let Hello = React.createClass({
   }
 });
 
-let WhoAmI = React.createClass({
+const WhoAmI = React.createClass({
   render: function(){
     return (
       <h1>My name is <u>{this.props.name}</u></h1>
@@ -40,7 +18,7 @@ let WhoAmI = React.createClass({
   }
 });
 
-let LoveButton = React.createClass({
+const LoveButton = React.createClass({
   getInitialState: function(){
     return {
       loved: true
@@ -62,7 +40,7 @@ let LoveButton = React.createClass({
   }
 });
 
-let VueInput = React.createClass({
+const VueInput = React.createClass({
   getInitialState: function() {
     console.log("initial state");
     return {
@@ -98,3 +76,40 @@ let VueInput = React.createClass({
     );
   }
 });
+
+const names = ['iverson', 'kobe', 'james'];
+const ForList = React.createClass({
+  render:function(){
+    const createItem = function(name){
+      return <li>{name}</li>
+    };
+    return (
+      <div className="for">
+        <ul>{this.props.arr.map(createItem)}</ul>
+      </div>
+    );
+  }
+});
+
+class App extends Component {
+  render() {
+    return (
+      <div className="App">
+        <div className="App-header">
+          <img src={logo} className="App-logo" alt="logo" />
+          <h2>Welcome to create-react-app</h2>
+          <Hello></Hello>
+          <WhoAmI name="sconfield"></WhoAmI>
+          <LoveButton></LoveButton>
+          <VueInput></VueInput>
+          <ForList arr={names}></ForList>
+        </div>
+        <p className="App-intro">
+          To get started, edit <code>src/App.js</code> and save to reload.
+        </p>
+      </div>
+    );
+  }
+}
+
+export default App;

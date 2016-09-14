@@ -23,3 +23,11 @@ body {
   color: yellow;
   font-size: 1.3em;
 }
+.for {
+  width: 120px;
+  margin: 10px auto auto auto;
+  border: 1px solid blue;
+}
+.for>ul {
+  text-align: initial;
+}
