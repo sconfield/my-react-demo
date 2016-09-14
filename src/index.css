@@ -31,3 +31,11 @@ body {
 .for>ul {
   text-align: initial;
 }
+.timer {
+  padding-top: 10px;
+}
+.timer>label {
+  position: absolute;
+  margin-left: -150px;
+  color: orange;
+}

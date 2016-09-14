@@ -95,6 +95,31 @@ const ForList = React.createClass({
   }
 });
 
+const Timer = React.createClass({
+  getInitialState: function(){
+    return {
+      count: 0
+    };
+  },
+  tick: function() {
+    let vv = this.state.count * 10 + 1;
+    this.setState({count: vv/10});
+  },
+  componentDidMount: function() {
+    this.interval = setInterval(this.tick, 100);
+  },
+  componentWillUnmount: function() {
+    clearInterval(this.interval);
+  },
+  render: function(){
+    return (
+      <div className="timer">
+        <label>You stay on this site for <strong>{this.state.count}</strong> seconds.</label>
+      </div>
+    );
+  }
+});
+
 class App extends Component {
   render() {
     return (
@@ -107,6 +132,7 @@ class App extends Component {
           <LoveButton></LoveButton>
           <VueInput></VueInput>
           <ForList arr={names}></ForList>
+          <Timer></Timer>
         </div>
         <p className="App-intro">
           To get started, edit <code>src/App.js</code> and save to reload.
