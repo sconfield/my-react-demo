@@ -39,3 +39,9 @@ body {
   margin-left: -150px;
   color: orange;
 }
+.learn-redux {
+  padding-top: 20px;
+}
+.learn-redux button {
+  cursor: pointer;
+}

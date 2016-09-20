@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import LearnRedux from './LearnRedux.jsx';
 import logo from './logo.svg';
 import './App.css';
 
@@ -133,6 +134,7 @@ class App extends Component {
           <VueInput></VueInput>
           <ForList arr={names}></ForList>
           <Timer></Timer>
+          <LearnRedux store={this.props.store}></LearnRedux>
         </div>
         <p className="App-intro">
           To get started, edit <code>src/App.js</code> and save to reload.
