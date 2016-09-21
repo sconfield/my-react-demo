@@ -10,7 +10,7 @@ const Hello = React.createClass({
 const WhoAmI = React.createClass({
   render() {
     return (
-      <h1>My name is <u>{this.props.name}</u></h1>
+      <h1>My name is <u>{this.props.name}</u>.</h1>
     );
   }
 });
