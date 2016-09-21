@@ -4,11 +4,7 @@ import logo from './logo.svg';
 import './App.css';
 
 const Hello = React.createClass({
-  render: function(){
-    return (
-      <h1>Hello React</h1>
-    );
-  }
+  render: ()=> (<h1>Hello React!</h1>)
 });
 
 const WhoAmI = React.createClass({
@@ -31,8 +27,8 @@ const LoveButton = React.createClass({
     });
   },
   render: function(){
-    let text = this.state.loved ? "love" : "don't love";
-    let clsName = this.state.loved ? "love" : "dont-love";
+    let text = this.state.loved ? 'love' : 'don\'t love';
+    let clsName = this.state.loved ? 'love' : 'dont-love';
     return (
       <h1 className={clsName}>
         I <button className={clsName} onClick={this.clickHandler}>{text}</button> you!
@@ -43,16 +39,16 @@ const LoveButton = React.createClass({
 
 const VueInput = React.createClass({
   getInitialState: function() {
-    console.log("initial state");
+    console.log("log=>initial state");
     return {
       vue: ''
     };
   },
   componentWillMount: function() {
-    console.log("will mount");
+    console.log("log=>will mount");
   },
   componentDidMount: function() {
-    console.log("did mount");
+    console.log("log=>did mount");
   },
   changeHandler: function(event){
     let val = event.target.value;
@@ -61,7 +57,7 @@ const VueInput = React.createClass({
     });
   },
   render: function() {
-    const DEFAULT_VUE = "please input any word.";
+    const DEFAULT_VUE = 'please input any word.';
     let showVue = DEFAULT_VUE;
     if (this.state.vue !== "") {
       showVue = this.state.vue;
@@ -81,7 +77,7 @@ const VueInput = React.createClass({
 const names = [
   {name: 'sconfield', color: 'blue'},
   {name: 'vivijin', color: 'green'},
-  {name: 'jacob', color: 'black'}
+  {name: 'jacob', color: 'black'},
 ];
 const ForList = React.createClass({
   render:function(){

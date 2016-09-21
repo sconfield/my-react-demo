@@ -1,19 +1,19 @@
 import React, { Component, PropTypes } from 'react';
 
 const DO_IT = 'Do what you love to do';
-export const actionCreator = function(doing = 'Learn redux.'){
+export const actionCreator = (doing = 'Learn redux.')=> {
   return {
     type: DO_IT,
-    payload: doing
+    payload: doing,
   };
 };
 
-export const reducer = function(state = {}, action){
+export const reducer = (state = {}, action)=> {
   switch (action.type) {
     case DO_IT:
       return {
         ...state,
-        doWhat: action.payload
+        doWhat: action.payload,
       };
     default:
       return state;
@@ -21,18 +21,16 @@ export const reducer = function(state = {}, action){
 };
 
 class LearnRedux extends Component {
+
   static propTypes = {
     store: PropTypes.object.isRequired
   }
+
   render() {
     const store = this.props.store;
     const text = store.getState().doWhat;
-    const learnClick = function(){
-      store.dispatch(actionCreator())
-    };
-    const loveClick = function(){
-      store.dispatch(actionCreator('Love vivijin.'))
-    };
+    const learnClick = ()=> store.dispatch(actionCreator());
+    const loveClick = ()=> store.dispatch(actionCreator('Love vivijin!'));
     return (
       <div className="learn-redux">
         <div>What you love to do?</div>
@@ -48,6 +46,7 @@ class LearnRedux extends Component {
       </div>
     );
   }
+
 }
 
 export default LearnRedux;

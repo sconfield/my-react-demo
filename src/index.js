@@ -5,14 +5,9 @@ import App from './App';
 import { reducer } from './LearnRedux.jsx';
 import './index.css';
 
-//ReactDOM.render(<App/>, document.getElementById('root'));
-
+const root = document.getElementById('root');
 const store = createStore(reducer);
-const listener = function(){
-  ReactDOM.render(
-    <App store={store} />,
-    document.getElementById('root')
-  );
-};
+const listener = ()=> ReactDOM.render(<App store={store} />, root);
+
 listener();
 store.subscribe(listener);
