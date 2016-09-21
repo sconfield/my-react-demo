@@ -8,7 +8,7 @@ const Hello = React.createClass({
 });
 
 const WhoAmI = React.createClass({
-  render: function(){
+  render() {
     return (
       <h1>My name is <u>{this.props.name}</u></h1>
     );
@@ -16,17 +16,17 @@ const WhoAmI = React.createClass({
 });
 
 const LoveButton = React.createClass({
-  getInitialState: function(){
+  getInitialState() {
     return {
       loved: true
     };
   },
-  clickHandler: function(){
+  clickHandler() {
     this.setState({
       loved: !this.state.loved
     });
   },
-  render: function(){
+  render() {
     let text = this.state.loved ? 'love' : 'don\'t love';
     let clsName = this.state.loved ? 'love' : 'dont-love';
     return (
@@ -38,25 +38,25 @@ const LoveButton = React.createClass({
 });
 
 const VueInput = React.createClass({
-  getInitialState: function() {
+  getInitialState() {
     console.log("log=>initial state");
     return {
       vue: ''
     };
   },
-  componentWillMount: function() {
+  componentWillMount() {
     console.log("log=>will mount");
   },
-  componentDidMount: function() {
+  componentDidMount() {
     console.log("log=>did mount");
   },
-  changeHandler: function(event){
+  changeHandler(event) {
     let val = event.target.value;
     this.setState({
       vue: val
     });
   },
-  render: function() {
+  render() {
     const DEFAULT_VUE = 'please input any word.';
     let showVue = DEFAULT_VUE;
     if (this.state.vue !== "") {
@@ -80,7 +80,7 @@ const names = [
   {name: 'jacob', color: 'black'},
 ];
 const ForList = React.createClass({
-  render:function(){
+  render:function() {
     const createItem = function(item, idx){
       return <li key={idx} style={{color: item.color}}>{item.name}</li>
     };
@@ -93,22 +93,22 @@ const ForList = React.createClass({
 });
 
 const Timer = React.createClass({
-  getInitialState: function(){
+  getInitialState() {
     return {
       count: 0
     };
   },
-  tick: function() {
+  tick() {
     let vv = this.state.count * 10 + 1;
     this.setState({count: vv/10});
   },
-  componentDidMount: function() {
+  componentDidMount() {
     this.interval = setInterval(this.tick, 100);
   },
-  componentWillUnmount: function() {
+  componentWillUnmount() {
     clearInterval(this.interval);
   },
-  render: function(){
+  render() {
     return (
       <div className="timer">
         <label>You stay on this site for <strong>{this.state.count}</strong> seconds.</label>
