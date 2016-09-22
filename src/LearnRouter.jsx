@@ -8,18 +8,22 @@ class Navigate extends Component {
       <ul>
         <li>
           <Link to="/" activeClassName="active">home</Link>
-        </li>
-        <li>
-          <Link to="/about" activeClassName="active">about</Link>
-        </li>
-        <li>
-          <Link to="/inbox" activeClassName="active">inbox</Link>
-        </li>
-        <li>
-          <Link to="/inbox/message/vivijin" activeClassName="active">message</Link>
-        </li>
-        <li>
-          <Link to="/app" activeClassName="active">app</Link>
+          <ul>
+            <li>
+              <Link to="/about" activeClassName="active">about</Link>
+            </li>
+            <li>
+              <Link to="/inbox" activeClassName="active">inbox</Link>
+              <ul>
+                <li>
+                  <Link to="/inbox/message/vivijin" activeClassName="active">message</Link>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <Link to="/app" activeClassName="active">app</Link>
+            </li>
+          </ul>
         </li>
       </ul>
     );
@@ -29,10 +33,10 @@ class Navigate extends Component {
 class Home extends Component {
   render() {
     return (
-      <div>
+      <div className="router-home">
         <h1>home</h1>
-        {this.props.children}
         <Navigate></Navigate>
+        {this.props.children}
       </div>
     );
   }
@@ -41,7 +45,7 @@ class Home extends Component {
 class About extends Component {
   render() {
     return (
-      <div>
+      <div className="router-about">
         <h2>home -> about page</h2>
       </div>
     );
@@ -51,7 +55,7 @@ class About extends Component {
 class Inbox extends Component {
   render() {
     return (
-      <div>
+      <div className="router-inbox">
         <h2>home -> inbox page</h2>
         {this.props.children}
       </div>
@@ -63,9 +67,9 @@ class Message extends Component {
   render() {
     const { name } = this.props.params
     return (
-      <div>
-        <h3>home -> inbox -> message page</h3>
-        <h4>send: hi {name}!</h4>
+      <div className="router-message">
+        <h2>home -> inbox -> message page</h2>
+        <h3>send: hi, {name}!</h3>
       </div>
     );
   }
@@ -73,15 +77,14 @@ class Message extends Component {
 
 class LearnRouter extends Component {
   render() {
-    console.log(this.props.store);
     return (
-      <Router history={hashHistory} store={this.props.store}>
+      <Router history={hashHistory}>
         <Route path="/" component={Home}>
           <Route path="about" component={About} />
           <Route path="inbox" component={Inbox}>
             <Route path="message(/:name)" component={Message} />
           </Route>
-          <Route path="app" component={App} />
+          <Route path="app" component={()=> (<App store={this.props.store} />)} />
         </Route>
       </Router>
     );

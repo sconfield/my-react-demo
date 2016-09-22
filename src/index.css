@@ -45,6 +45,18 @@ body {
 .learn-redux button {
   cursor: pointer;
 }
-.active {
+.router-home {
+  border: red solid 9px;
+}
+.router-about {
+  border: orange solid 6px;
+}
+.router-inbox {
+  border: blue solid 6px;
+}
+.router-message {
+  border: green solid 3px;
+}
+.router-home .active {
   color: red;
 }
