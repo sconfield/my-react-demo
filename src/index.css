@@ -45,3 +45,6 @@ body {
 .learn-redux button {
   cursor: pointer;
 }
+.active {
+  color: red;
+}
