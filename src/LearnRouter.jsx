@@ -34,7 +34,7 @@ class Home extends Component {
   render() {
     return (
       <div className="router-home">
-        <h1>home</h1>
+        <h1>{this.props.location.pathname}</h1>
         <Navigate></Navigate>
         {this.props.children}
       </div>
